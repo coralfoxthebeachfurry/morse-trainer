@@ -17,7 +17,7 @@ def decode(text):
 run = True
 try:
     while run == True:
-        print("MORSE TRAINER 1.0A BY CORALFOXTHEBEACHFURRY")
+        print("MORSE TRAINER 1.1A BY CORALFOXTHEBEACHFURRY")
         choice = input("What would you like to do?\n1. Text-to-Morse\n2. Morse-to-Text\n0. Exit\n[ENTER YOUR CHOICE...]\n")
         if choice == '1':
             text = input("Enter text: ").strip().lower()
