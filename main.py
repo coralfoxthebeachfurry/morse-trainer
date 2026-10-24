@@ -24,7 +24,7 @@ def convert_to_audio(convert_type, play_audio_yn, save_audio_yn):
         if play_audio_yn == 'n' or save_audio_yn == 'y':
                 file_name = input("What do you want the file name to be?(Default: morse.wav): ")
                 if file_name == '':
-                    file_name == 'morse.wav'
+                    file_name = 'morse.wav'
                 if not file_name.endswith('.wav'):
                     file_name += '.wav'
         if user_hz == '':
@@ -52,7 +52,7 @@ def convert_to_audio(convert_type, play_audio_yn, save_audio_yn):
         if play_audio_yn == 'n' or save_audio_yn == 'y':
                 file_name = input("What do you want the file name to be?(Default: morse.wav): ")
                 if file_name == '':
-                    file_name == 'morse.wav'
+                    file_name = 'morse.wav'
                 if not file_name.endswith('.wav'):
                     file_name += '.wav'
         if user_hz == '':
