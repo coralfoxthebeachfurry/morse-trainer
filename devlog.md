@@ -20,3 +20,4 @@ Heh, my brain was too short circuited(or rather I was sleepy af...) that I marke
 ### Duration: 1 hour 30 minutes
 FIRST PART OF AUDIO IS DONEIJGDIYSGDUYGUDGUSUD
 So uhh yeah basically conversion to audio is done, sooner or later from audio will be released. so 1.2A is a 2 part update, bcs my brain is lowk fried bcs I was writing straight nonsense... Aight that's all from me, see you guys on the next commit/devlog ig...
+I learned how to use math and sound to sound out dots and dashes, numpy etc
