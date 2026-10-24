@@ -65,7 +65,7 @@ def save_audio(filename, audio_buffer):
     pcm_data = (audio_buffer * 32767).astype(np.int16)
     with wave.open(filename, 'wb') as wav_file:
         wav_file.setnchannels(1)
-        wav_file.setsampwidth92
+        wav_file.setsampwidth(2)
         wav_file.setframerate(SAMPLE_RATE)
         wav_file.writeframes(pcm_data.tobytes())
 
