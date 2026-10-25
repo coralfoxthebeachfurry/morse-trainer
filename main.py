@@ -21,7 +21,7 @@ def convert_to_audio(convert_type, play_audio_yn, save_audio_yn):
         morse = encode(text)
         user_hz = input("Enter pitch in Hz(Default: 700): ")
         user_dot_len = input("Enter dot length in miliseconds(Default: 100): ")
-        if play_audio_yn == 'n' or save_audio_yn == 'y':
+        if play_audio_yn == 'n' and save_audio_yn == 'y':
                 file_name = input("What do you want the file name to be?(Default: morse.wav): ")
                 if file_name == '':
                     file_name = 'morse.wav'
@@ -49,7 +49,7 @@ def convert_to_audio(convert_type, play_audio_yn, save_audio_yn):
         morse = input("Enter morse(separated by space on letters and slash on words): ")
         user_hz = input("Enter pitch in Hz(Default: 700): ")
         user_dot_len = input("Enter dot length in miliseconds(Default: 100): ")
-        if play_audio_yn == 'n' or save_audio_yn == 'y':
+        if play_audio_yn == 'n' and save_audio_yn == 'y':
                 file_name = input("What do you want the file name to be?(Default: morse.wav): ")
                 if file_name == '':
                     file_name = 'morse.wav'
@@ -78,7 +78,7 @@ run = True
 try:
     while run == True:
         print("MORSE TRAINER 1.2.1A BY CORALFOXTHEBEACHFURRY")
-        choice = input("What would you like to do?\n1. Text-to-Morse\n2. Morse-to-Text\n3. Text-to-Audio\n4. Morse-to-Audio\n0. Exit\n[ENTER YOUR CHOICE...]\n")
+        choice = input("What would you like to do?\n1. Text-to-Morse\n2. Morse-to-Text\n3. Text/Morse-to-Audio\n0. Exit\n[ENTER YOUR CHOICE...]\n")
         if choice == '1':
             text = input("Enter text: ").strip().lower()
             print(encode(text))
@@ -86,22 +86,31 @@ try:
             text = input("Enter Morse:").strip().lower()
             print(decode(text))
         elif choice == '3':
+            convert_type = input("What type of conversion?\n1. Morse-to-Audio\n2. Text-to-Audio\n[ENTER YOUR CHOICE]\n").strip()
+            if convert_type == '':
+                raise ValueError
+                break
             play_audio_yn = input("Do you want to play the audio?(Y for yes, N for save only): ").strip().lower()
-            if play_audio_yn != 'n':
+            if play_audio_yn == 'y':
                 save_audio_yn = input("Do you want to save the resulting audio?(Y for yes, N for play audio only): ")
-            convert_to_audio('0', play_audio_yn, save_audio_yn)
-        elif choice == '4':
-            play_audio_yn = input("Do you want to play the audio?(Y for yes, N for save only): ").strip().lower()
-            if play_audio_yn != 'n':
-                save_audio_yn = input("Do you want to save the resulting audio?(Y for yes, N for play audio only): ")
-            convert_to_audio('1', play_audio_yn, save_audio_yn)
+            elif play_audio_yn == 'n':
+                save_audio_yn = 'y'
+            else:
+                raise ValueError
+                break
+            convert_to_audio(convert_type, play_audio_yn, save_audio_yn)
         elif choice == '0':
             print("Goodbye!")
             run = False
         else:
-            print("Invalid option!")
+            raise ValueError
+            break
+
+#Exception handling
 except KeyboardInterrupt:
     print("Interrupted, goodbye!")
     run = False
 except Exception as e:
     print("Unknown error! Open a issue and include the text after this message.\n", e)
+except ValueError:
+    print("Invalid option!")
