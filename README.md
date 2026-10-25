@@ -2,6 +2,7 @@
 A helpful tool to teach newbies Morse/CW communication.
 > [!NOTE]
 > THIS PROJECT IS IN PROGRESS
+
 Yup, made this repo first for devlogs. Check that out(the file is called devlog.md).
 ## How to install/use
 Clone or download as zip and extract the contents of this repo. Run `pip install -r requirements.txt` first then run main.py
