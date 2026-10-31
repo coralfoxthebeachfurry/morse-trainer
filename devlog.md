@@ -29,3 +29,10 @@ I learned how to use math and sound to sound out dots and dashes, numpy etc
 ### Time: 12:06 AM 2026-10-26
 ### Duration: 22~ minutes
 Guhh, so many errors... Well, bugs. I cleaned up the code on Audio part(to_audio.py AND main.py) to make it actually work and not just, give up...
+## 1.2.2A
+### Time: 2:39 PM 2026-10-31
+### Duration: 1 hour
+AUDIO(to morse/text) IS DONEIAURTY
+That was hell.. but now, I(hopefully) have a working audio conversion. Learned how to make it dynamically adjust to accomodate faster/slower speed etc. GUI next I suppose(hence its not 1.0 yet, tho I might take it back and make it 1.0 TmT). Only wave file works for now, and I don't think I'll change that anytime soon.
+And also, I was dumb af and made the to audio wrong as such it didn't work as intended, but it does now. Cya :3
+P.S. Don't mind the picture timestamp, my "laptop" died bcs there was no power earlier... Thank god I saved right before it

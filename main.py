@@ -1,5 +1,6 @@
 from table import ENCODE_TABLE, DECODE_TABLE
 from to_audio import *
+from from_audio import *
 
 def encode(text):
     for ch in text:
@@ -16,7 +17,7 @@ def decode(text):
     return ''.join(DECODE_TABLE.get(tok, tok) for tok in text.split())
 
 def convert_to_audio(convert_type, play_audio_yn, save_audio_yn):
-    if convert_type == '0':
+    if convert_type == '1':
         text = input("Enter text: ")
         morse = encode(text)
         user_hz = input("Enter pitch in Hz(Default: 700): ")
@@ -45,7 +46,7 @@ def convert_to_audio(convert_type, play_audio_yn, save_audio_yn):
         if play_audio_yn == 'n':
             save_audio(file_name, audio_data)
             print(f"Saved to {file_name}")
-    if convert_type == '1':
+    if convert_type == '2':
         morse = input("Enter morse(separated by space on letters and slash on words): ")
         user_hz = input("Enter pitch in Hz(Default: 700): ")
         user_dot_len = input("Enter dot length in miliseconds(Default: 100): ")
@@ -77,8 +78,8 @@ def convert_to_audio(convert_type, play_audio_yn, save_audio_yn):
 run = True
 try:
     while run == True:
-        print("MORSE TRAINER 1.2.1A BY CORALFOXTHEBEACHFURRY")
-        choice = input("What would you like to do?\n1. Text-to-Morse\n2. Morse-to-Text\n3. Text/Morse-to-Audio\n0. Exit\n[ENTER YOUR CHOICE...]\n")
+        print("MORSE TRAINER 1.2.2A BY CORALFOXTHEBEACHFURRY")
+        choice = input("What would you like to do?\n1. Text-to-Morse\n2. Morse-to-Text\n3. Text/Morse-to-Audio\n4. Audio-Text/Morse(.wav file only)\n0. Exit\n[ENTER YOUR CHOICE...]\n")
         if choice == '1':
             text = input("Enter text: ").strip().lower()
             print(encode(text))
@@ -86,7 +87,9 @@ try:
             text = input("Enter Morse:").strip().lower()
             print(decode(text))
         elif choice == '3':
-            convert_type = input("What type of conversion?\n1. Morse-to-Audio\n2. Text-to-Audio\n[ENTER YOUR CHOICE]\n").strip()
+            convert_type = input("What type of conversion?\n1. Text-to-Audio\n2. Morse-to-Audio\n0. Return\n[ENTER YOUR CHOICE]\n").strip()
+            if convert_type == '0':
+                break
             if convert_type == '':
                 raise ValueError
                 break
@@ -99,6 +102,22 @@ try:
                 raise ValueError
                 break
             convert_to_audio(convert_type, play_audio_yn, save_audio_yn)
+        elif choice == '4':
+            convert_type = input("What type of conversion?\n1. Audio-to-Text\n2. Audio-to-Morse\n0. Return\n[ENTER YOUR CHOICE]\n").strip()
+            if convert_type == '0':
+                break
+            if convert_type == '':
+                raise ValueError
+                break
+            wav_filename = input("What's the .wav filename?: ").strip
+            if not wav_filename.endswith('.wav'):
+                wav_filename += '.wav'
+            if convert_type == '1':
+                morse = audio_to_morse(wav_filename)
+                print(decode(morse))
+            elif convert_type == '2':
+                morse = audio_to_morse(wav_filename)
+                print(morse)
         elif choice == '0':
             print("Goodbye!")
             run = False
@@ -111,6 +130,6 @@ except KeyboardInterrupt:
     print("Interrupted, goodbye!")
     run = False
 except Exception as e:
-    print("Unknown error! Open a issue and include the text after this message.\n", e)
+    print("Unknown error! Open a issue and include the text(and full log/what you were doing) after this message.\n", e)
 except ValueError:
     print("Invalid option!")
