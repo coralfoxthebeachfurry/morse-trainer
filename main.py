@@ -89,10 +89,10 @@ try:
         elif choice == '3':
             convert_type = input("What type of conversion?\n1. Text-to-Audio\n2. Morse-to-Audio\n0. Return\n[ENTER YOUR CHOICE]\n").strip()
             if convert_type == '0':
-                break
+                return
             if convert_type == '':
                 raise ValueError
-                break
+                return
             play_audio_yn = input("Do you want to play the audio?(Y for yes, N for save only): ").strip().lower()
             if play_audio_yn == 'y':
                 save_audio_yn = input("Do you want to save the resulting audio?(Y for yes, N for play audio only): ")
@@ -100,15 +100,15 @@ try:
                 save_audio_yn = 'y'
             else:
                 raise ValueError
-                break
+                return
             convert_to_audio(convert_type, play_audio_yn, save_audio_yn)
         elif choice == '4':
             convert_type = input("What type of conversion?\n1. Audio-to-Text\n2. Audio-to-Morse\n0. Return\n[ENTER YOUR CHOICE]\n").strip()
             if convert_type == '0':
-                break
+                return
             if convert_type == '':
                 raise ValueError
-                break
+                return
             wav_filename = input("What's the .wav filename?: ").strip
             if not wav_filename.endswith('.wav'):
                 wav_filename += '.wav'
@@ -123,7 +123,7 @@ try:
             run = False
         else:
             raise ValueError
-            break
+            return
 
 #Exception handling
 except KeyboardInterrupt:

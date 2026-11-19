@@ -36,3 +36,9 @@ AUDIO(to morse/text) IS DONEIAURTY
 That was hell.. but now, I(hopefully) have a working audio conversion. Learned how to make it dynamically adjust to accomodate faster/slower speed etc. GUI next I suppose(hence its not 1.0 yet, tho I might take it back and make it 1.0 TmT). Only wave file works for now, and I don't think I'll change that anytime soon.
 And also, I was dumb af and made the to audio wrong as such it didn't work as intended, but it does now. Cya :3
 P.S. Don't mind the picture timestamp, my "laptop" died bcs there was no power earlier... Thank god I saved right before it
+## 1.0(IN WORK)
+### Time 11:50 PM
+### Duration: 30~ minutes
+Well, not really 30 mins... That's what hackatime shows, and it probably piled up from like a few days ago. I just wanna make this devlog, no this project its not dead!!! 1.0 will come out soon, and now im just implementing Web GUI(idk how to use tinker/python builtin GUI :/). So yeah, if you're asking why the web.py is unfinished, it's because it is. I have no ETA, but I'm racing to get it done before Dec 1st. That's all from me!(or not)
+P.S. As of writing this(see the time -w-), it's 10 minutes from my birthday! So um, queue up Blessings ig... Happy birthday to me! :yay-boykisser:
+P.P.S And uhh some "improvement"(bug fixes) on the existing CLI version, which is piling up(guess who don't test and just prays it works)
